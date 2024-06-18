@@ -9,7 +9,7 @@ WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
 # Stufe 2: Laufzeitumgebung für das Java-Programm
-FROM adoptopenjdk/openjdk17:alpine-jre
+FROM openjdk:17-jdk-alpine
 
 # Kopiere das kompilierte JAR aus dem Build-Container
 COPY --from=build /home/gradle/src/build/libs/webtech-0.0.1-SNAPSHOT.jar app.jar
