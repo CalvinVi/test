@@ -16,6 +16,7 @@ public class TodoController {
 
     @GetMapping
     public List<Todo> getAllTodos() {
+        System.out.println("GET request received to fetch all todos.");
         return todoService.getAllTodos();
     }
 
