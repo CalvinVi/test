@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '3.3.1'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
@@ -17,22 +17,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    // JPA-Abhängigkeit hinzufügen
-    implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:3.3.1"
-    }
 }
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-// Beispiel für das Hinzufügen des Spring Boot Plugins
-springBoot {
-    buildInfo()
 }
