@@ -1,13 +1,12 @@
-package htw_berlin.webtech;
+package htw.berlin.webtech;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebtechApplicationTests {
+public class WebtechApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {
+    }
 }

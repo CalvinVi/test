@@ -12,17 +12,9 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String description;
+    private boolean completed;
 
-    // Konstruktoren, Getter und Setter
-    public Todo() {}
-
-    public Todo(Long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
-
+    // Getter und Setter
     public Long getId() {
         return id;
     }
@@ -39,11 +31,11 @@ public class Todo {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean isCompleted() {
+        return completed;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
