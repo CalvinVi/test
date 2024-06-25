@@ -1,18 +1,11 @@
-# Stufe 1: Build des Java-Projekts mit Gradle
-FROM gradle:jdk17 AS build
-
-# Kopiere den Quellcode ins Arbeitsverzeichnis des Gradle-Containers
-COPY . /home/gradle/src
+FROM gradle:jdk21-jammy AS build
+COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-
-# Führe den Gradle-Build aus
+ARG DB_PASSWORD
+ARG DB_URL
+ARG DB_USER
 RUN gradle build --no-daemon
 
-# Stufe 2: Laufzeitumgebung für das Java-Programm
-FROM openjdk:17-jdk-alpine
-
-# Kopiere das kompilierte JAR aus dem Build-Container
-COPY --from=build /home/gradle/src/build/libs/webtech-0.0.1-SNAPSHOT.jar app.jar
-
-# Setze den Startbefehl für das Java-Programm
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+FROM eclipse-temurin:21-jdk-jammy
+COPY --from=build /home/gradle/src/build/libs/ToDoBackend-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

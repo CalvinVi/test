@@ -8,11 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
-    public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
+    public void addCorsMappings(final CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://todofrontend-2.onrender.com") // Ersetze dies mit der URL deines Frontends
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+                .allowedMethods("*")
+                .allowedOrigins("http://localhost:5174",
+                        "http://localhost:5173", //evtl euren Localhost Port ergänzen
+                        "https://todofrontend-2.onrender.com");
     }
 }
