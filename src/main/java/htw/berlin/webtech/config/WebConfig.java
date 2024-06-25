@@ -13,6 +13,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("*")
                 .allowedOrigins("http://localhost:5174",
                         "http://localhost:5173", //evtl euren Localhost Port ergänzen
-                        "https://todofrontend-2.onrender.com");
+                        "https://testfrontend-jgih.onrender.com");
     }
 }
