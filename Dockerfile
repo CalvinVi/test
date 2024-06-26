@@ -8,4 +8,4 @@ RUN gradle build --no-daemon
 
 FROM eclipse-temurin:21-jdk-jammy
 COPY --from=build /home/gradle/src/build/libs/webtech-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/app.jar"]
